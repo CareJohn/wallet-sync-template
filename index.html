@@ -3,471 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet Sync - Advanced Multi-Wallet Platform</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
-        
-        /* Header */
-        header {
-            background: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #0052cc, #0066ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        nav a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #0052cc;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0052cc 0%, #0066ff 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            font-weight: 800;
-            animation: slideInDown 0.6s ease-out;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: slideInUp 0.6s ease-out 0.2s both;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #0052cc;
-            padding: 0.85rem 2.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            animation: slideInUp 0.6s ease-out 0.4s both;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-        }
-        
-        /* Features Section */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 4rem 0;
-            margin: 4rem 0;
-        }
-        
-        .feature-card {
-            background: #f8f9fa;
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0,82,204,0.12);
-            border-color: #0052cc;
-        }
-        
-        .feature-card h3 {
-            color: #0052cc;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .feature-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-        
-        /* Buttons Section */
-        .buttons-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.2rem;
-            padding: 2rem 0;
-            margin: 3rem 0;
-        }
-        
-        .action-button {
-            background: #0052cc;
-            color: white;
-            padding: 1.1rem 1.5rem;
-            border: 2px solid transparent;
-            border-radius: 8px;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-        
-        .action-button:hover {
-            background: white;
-            color: #0052cc;
-            border-color: #0052cc;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,82,204,0.2);
-        }
-        
-        /* Section Titles */
-        .section-title {
-            font-size: 2.5rem;
-            color: #0052cc;
-            margin: 3rem 0 1.5rem 0;
-            text-align: center;
-            font-weight: 800;
-        }
-        
-        .section-subtitle {
-            font-size: 1rem;
-            color: #666;
-            text-align: center;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Partners Section */
-        .partners {
-            text-align: center;
-            padding: 4rem 0;
-            background: #f8f9fa;
-            border-radius: 12px;
-            margin: 3rem 0;
-        }
-        
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2.5rem;
-            align-items: center;
-        }
-        
-        .partner-logo {
-            text-align: center;
-            padding: 1.5rem;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .partner-logo:hover {
-            opacity: 1;
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-        }
-        
-        /* Form Section */
-        .form-section {
-            background: white;
-            padding: 3.5rem;
-            border-radius: 12px;
-            max-width: 600px;
-            margin: 3rem auto;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-            border: 1px solid #e0e0e0;
-        }
-        
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.6rem;
-            font-weight: 600;
-            color: #333;
-            font-size: 0.95rem;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 0.9rem;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #0052cc;
-            box-shadow: 0 0 0 4px rgba(0,82,204,0.1);
-            background-color: #f8fbff;
-        }
-        
-        textarea {
-            resize: vertical;
-            min-height: 140px;
-            font-family: inherit;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, #0052cc, #0066ff);
-            color: white;
-            padding: 0.9rem 2rem;
-            border: none;
-            border-radius: 6px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            font-size: 1rem;
-            box-shadow: 0 4px 12px rgba(0,82,204,0.3);
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,82,204,0.4);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            padding: 3rem 0;
-            text-align: center;
-            color: #aaa;
-            margin-top: 4rem;
-        }
-        
-        /* Animations */
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
-        }
-        
-        /* Carousel Styles */
-        .carousel-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 0;
-        }
-        
-        .carousel-wrapper {
-            display: flex;
-            overflow: hidden;
-            border-radius: 12px;
-            background: white;
-            width: 100%;
-            max-width: 800px;
-        }
-        
-        .carousel-slide {
-            display: none;
-            padding: 2rem;
-            text-align: center;
-            width: 100%;
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        .carousel-slide.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .carousel-btn {
-            background: #0052cc;
-            color: white;
-            border: none;
-            padding: 0.8rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 0 1rem;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        
-        .carousel-btn:hover {
-            background: #0042a3;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .form-section {
-                padding: 1.5rem;
-            }
-            
-            nav a {
-                margin-left: 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .buttons-section {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>Wallet Validation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">💳 Wallet Sync</div>
-                <nav>
-                    <a href="#features">Features</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-            </div>
+            <div class="logo">⭐ Wallet Validation</div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Wallet Syncing Reimagined</h1>
-            <p>A decentralized protocol that allows developers to create innovative, secure, and resilient online tools for multi-wallet management.</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
+        <div class="container">
+            <h1>Wallet Syncing is the process or operation of merging.</h1>
+            <p>Dapp Walletnode is a decentralized protocol. Dconnect create an innovative open-source software ecosystem that is both secure and resilient and it allows developers to create new online tools.</p>
         </div>
     </section>
 
-    <div class="container">
-        <section id="features" class="features">
-            <div class="feature-card">
-                <h3>🔒 Bank-Grade Security</h3>
-                <p>Enterprise-level encryption and multi-signature authentication keep your assets protected 24/7 with zero compromise on security.</p>
+    <section class="actions">
+        <div class="container">
+            <div class="buttons-grid">
+                <a href="wallets.html" class="action-btn">Migrate</a>
+                <a href="wallets.html" class="action-btn">Staking</a>
+                <a href="wallets.html" class="action-btn">Wallet Synchronization</a>
+                <a href="wallets.html" class="action-btn">Gas Fee Issues</a>
+                <a href="wallets.html" class="action-btn">Login Issues</a>
+                <a href="wallets.html" class="action-btn">Claim Rewards</a>
+                <a href="wallets.html" class="action-btn">Claim your NFT</a>
+                <a href="wallets.html" class="action-btn">Snapshot</a>
             </div>
-            <div class="feature-card">
-                <h3>⚡ Lightning Speed</h3>
-                <p>Synchronize across multiple wallets instantly with our optimized blockchain protocol ensuring maximum uptime and reliability.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🔗 Universal Support</h3>
-                <p>Connect Ethereum, Solana, Polygon, Arbitrum, and more from a single unified dashboard with seamless cross-chain integration.</p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <h2 class="section-title">Quick Actions</h2>
-        <div class="buttons-section">
-            <a href="#" class="action-button">Migrate Wallet</a>
-            <a href="#" class="action-button">Setup Staking</a>
-            <a href="#" class="action-button">Synchronize Now</a>
-            <a href="#" class="action-button">Claim Rewards</a>
-            <a href="#" class="action-button">
+    <section class="partners">
+        <div class="container">
+            <h2>PARTNERS WHO BELIEVE IN OUR PROJECT</h2>
+            <p>Wallet Synching allows developers to create new online tools, many of which have piqued the interest of global business markets.</p>
+            <div class="carousel" id="carousel">
+                <div class="carousel-items" id="carousel-items">
+                    <div class="partner">Blox Staking</div>
+                    <div class="partner">Allnodes</div>
+                    <div class="partner">Citrus</div>
+                    <div class="partner">GoEthereum</div>
+                    <div class="partner">Polkadot</div>
+                </div>
+                <div class="carousel-dots" id="dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
