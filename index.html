@@ -3,253 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet Syncing - Professional Platform</title>
+    <title>Wallet Sync - Advanced Multi-Wallet Platform</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f8f9fa;
-            color: #333;
+            background: #ffffff;
+            color: #1a1a1a;
             line-height: 1.6;
         }
-
+        
+        /* Header */
         header {
             background: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
-
+        
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
-            color: #0052cc;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0052cc, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-
+        
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #0052cc;
+        }
+        
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #0052cc 0%, #0066ff 100%);
             color: white;
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
             line-height: 1.2;
+            font-weight: 800;
+            animation: slideInDown 0.6s ease-out;
         }
-
+        
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+            animation: slideInUp 0.6s ease-out 0.2s both;
         }
-
+        
         .cta-button {
             display: inline-block;
             background: white;
             color: #0052cc;
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
+            padding: 0.85rem 2.5rem;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            animation: slideInUp 0.6s ease-out 0.4s both;
         }
-
+        
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
         }
-
+        
+        /* Features Section */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 4rem 0;
             margin: 4rem 0;
         }
-
+        
         .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            text-align: center;
         }
-
+        
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,82,204,0.12);
+            border-color: #0052cc;
         }
-
+        
         .feature-card h3 {
             color: #0052cc;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
-
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Buttons Section */
         .buttons-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
             padding: 2rem 0;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
-
+        
         .action-button {
             background: #0052cc;
             color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 4px;
+            padding: 1.1rem 1.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
-
+        
         .action-button:hover {
-            background: #0042a3;
-        }
-
-        .section-title {
-            font-size: 2rem;
+            background: white;
             color: #0052cc;
-            margin: 3rem 0 1rem 0;
-            text-align: center;
+            border-color: #0052cc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,82,204,0.2);
         }
-
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            color: #0052cc;
+            margin: 3rem 0 1.5rem 0;
+            text-align: center;
+            font-weight: 800;
+        }
+        
         .section-subtitle {
             font-size: 1rem;
             color: #666;
             text-align: center;
             margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
+        
+        /* Partners Section */
+        .partners {
+            text-align: center;
+            padding: 4rem 0;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            text-align: center;
+            padding: 1.5rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+        
+        /* Form Section */
         .form-section {
             background: white;
-            padding: 3rem;
-            border-radius: 8px;
+            padding: 3.5rem;
+            border-radius: 12px;
             max-width: 600px;
-            margin: 2rem auto;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin: 3rem auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
         }
-
+        
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
-
+        
         label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
             color: #333;
+            font-size: 0.95rem;
         }
-
+        
         input, textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.9rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
             font-family: inherit;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
         }
-
+        
         input:focus, textarea:focus {
             outline: none;
             border-color: #0052cc;
-            box-shadow: 0 0 0 3px rgba(0,82,204,0.1);
+            box-shadow: 0 0 0 4px rgba(0,82,204,0.1);
+            background-color: #f8fbff;
         }
-
+        
         textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
+            font-family: inherit;
         }
-
+        
         .submit-btn {
-            background: #0052cc;
+            background: linear-gradient(135deg, #0052cc, #0066ff);
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.9rem 2rem;
             border: none;
-            border-radius: 4px;
-            font-weight: 600;
+            border-radius: 6px;
+            font-weight: 700;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
             width: 100%;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0,82,204,0.3);
         }
-
+        
         .submit-btn:hover {
-            background: #0042a3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,82,204,0.4);
         }
-
+        
+        /* Footer */
         footer {
-            background: #f0f0f0;
-            padding: 2rem 0;
+            background: #1a1a1a;
+            padding: 3rem 0;
             text-align: center;
-            color: #666;
+            color: #aaa;
             margin-top: 4rem;
         }
-
-        .partners {
-            text-align: center;
-            padding: 3rem 0;
-            background: #f8f9fa;
+        
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
         }
-
-        .partner-logo {
+        
+        .carousel-wrapper {
+            display: flex;
+            overflow: hidden;
+            border-radius: 12px;
+            background: white;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .carousel-slide {
+            display: none;
+            padding: 2rem;
             text-align: center;
-            padding: 1rem;
-            opacity: 0.7;
-            transition: opacity 0.3s;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in;
         }
-
-        .partner-logo:hover {
-            opacity: 1;
+        
+        .carousel-slide.active {
+            display: block;
         }
-
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .carousel-btn {
+            background: #0052cc;
+            color: white;
+            border: none;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background: #0042a3;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-
+            
             .hero p {
                 font-size: 1rem;
             }
-
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
             .form-section {
                 padding: 1.5rem;
+            }
+            
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .buttons-section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -260,33 +433,34 @@
             <div class="header-content">
                 <div class="logo">💳 Wallet Sync</div>
                 <nav>
-                    <a href="#features" style="margin-left: 2rem; text-decoration: none; color: #333;">Features</a>
+                    <a href="#features">Features</a>
+                    <a href="#contact">Contact</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>Wallet Syncing is the process of merging.</h1>
-            <p>Dapp Walletnode is a decentralized protocol. Dconnect creates an innovative open-source software ecosystem that is both secure and resilient and it allows developers to create new online tools.</p>
-            <a href="#contact" class="cta-button">Get Started</a>
+        <div class="hero-content">
+            <h1>Wallet Syncing Reimagined</h1>
+            <p>A decentralized protocol that allows developers to create innovative, secure, and resilient online tools for multi-wallet management.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
         </div>
     </section>
 
     <div class="container">
         <section id="features" class="features">
             <div class="feature-card">
-                <h3>🔒 Secure</h3>
-                <p>Enterprise-grade security protocols ensure your data is always protected with the latest encryption standards.</p>
+                <h3>🔒 Bank-Grade Security</h3>
+                <p>Enterprise-level encryption and multi-signature authentication keep your assets protected 24/7 with zero compromise on security.</p>
             </div>
             <div class="feature-card">
-                <h3>⚡ Fast</h3>
-                <p>Lightning-quick synchronization across all your wallets with minimal latency and maximum uptime.</p>
+                <h3>⚡ Lightning Speed</h3>
+                <p>Synchronize across multiple wallets instantly with our optimized blockchain protocol ensuring maximum uptime and reliability.</p>
             </div>
             <div class="feature-card">
-                <h3>🔗 Connected</h3>
-                <p>Seamlessly connect multiple wallet networks and manage everything from one unified dashboard.</p>
+                <h3>🔗 Universal Support</h3>
+                <p>Connect Ethereum, Solana, Polygon, Arbitrum, and more from a single unified dashboard with seamless cross-chain integration.</p>
             </div>
         </section>
 
@@ -294,52 +468,6 @@
         <div class="buttons-section">
             <a href="#" class="action-button">Migrate Wallet</a>
             <a href="#" class="action-button">Setup Staking</a>
-            <a href="#" class="action-button">Synchronize</a>
+            <a href="#" class="action-button">Synchronize Now</a>
             <a href="#" class="action-button">Claim Rewards</a>
-            <a href="#" class="action-button">Claim NFT</a>
-            <a href="#" class="action-button">View Snapshot</a>
-        </div>
-
-        <div class="partners">
-            <h2 class="section-title">Partners Who Believe In Our Project</h2>
-            <p class="section-subtitle">Wallet Syncing allows developers to create new online tools, many of which have piqued the interest of global business markets.</p>
-            <div class="partners-grid">
-                <div class="partner-logo">Ethereum</div>
-                <div class="partner-logo">Polygon</div>
-                <div class="partner-logo">Solana</div>
-                <div class="partner-logo">Avalanche</div>
-                <div class="partner-logo">Arbitrum</div>
-            </div>
-        </div>
-
-        <section id="contact" class="form-section">
-            <h2 style="color: #0052cc; margin-bottom: 1.5rem; text-align: center;">Get In Touch</h2>
-            <form action="https://formspree.io/f/mblwgedo" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </section>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Wallet Sync. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+            <a href="#" class="action-button">
